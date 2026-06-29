@@ -8,10 +8,27 @@ import (
 
 func CORS() gin.HandlerFunc {
 	config := cors.DefaultConfig()
-	config.AllowAllOrigins = true
 	config.AllowCredentials = true
 	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
-	config.AllowHeaders = []string{"*"}
+	config.AllowHeaders = []string{
+		"Origin",
+		"Content-Type",
+		"Accept",
+		"Authorization",
+		"X-Requested-With",
+		"x-api-key",
+		"x-goog-api-key",
+		"anthropic-version",
+		"X-New-Api-Version",
+	}
+	config.ExposeHeaders = []string{
+		"Content-Length",
+		"Content-Type",
+		"X-New-Api-Version",
+	}
+	config.AllowOriginFunc = func(origin string) bool {
+		return true
+	}
 	return cors.New(config)
 }
 
