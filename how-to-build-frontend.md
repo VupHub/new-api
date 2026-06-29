@@ -112,7 +112,11 @@ VITE_REACT_APP_SERVER_URL="https://api.example.com" bun run build
 
 ## 备案号配置
 
-两套前端均已增加“备案号”配置项，直接修改配置文件即可更新。
+两套前端均支持“备案号”展示，推荐优先使用构建环境变量注入（更适合阿里云 ESA PAGES 在线构建，不需要改源码）：
+
+- `VITE_ICP_FILING_NUMBER=京ICP备12345678号-1`
+
+如果不想通过环境变量注入，也可以改源码常量（不推荐频繁改动）：
 
 - 默认前端配置项位置：[constants.ts](file:///e:/new-api-1.0.0-rc.10/web/default/src/lib/constants.ts)
   - `DEFAULT_ICP_FILING_NUMBER`

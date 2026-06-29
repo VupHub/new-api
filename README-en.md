@@ -228,6 +228,12 @@ curl -X POST 'https://api.example.com/api/setup' \
 
 The ICP filing number is rendered on the footer and links to `https://beian.miit.gov.cn/`.
 
+Recommended (best for Aliyun ESA PAGES builds): inject via build env:
+
+- `VITE_ICP_FILING_NUMBER=ICP12345678`
+
+Alternative (less flexible): modify source constants:
+
 - default frontend: `DEFAULT_ICP_FILING_NUMBER` in [constants.ts](./web/default/src/lib/constants.ts)
 - classic frontend: `DEFAULT_ICP_FILING_NUMBER` in [common.constant.js](./web/classic/src/constants/common.constant.js)
 

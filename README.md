@@ -271,8 +271,14 @@ curl -X POST 'https://api.example.com/api/setup' \
 
 备案号展示在页脚 `© {year} {SystemName}. 版权所有` 右侧，并链接到 `https://beian.miit.gov.cn/`。
 
-- 默认前端：修改 [constants.ts](./web/default/src/lib/constants.ts) 的 `DEFAULT_ICP_FILING_NUMBER`
-- 经典前端：修改 [common.constant.js](./web/classic/src/constants/common.constant.js) 的 `DEFAULT_ICP_FILING_NUMBER`
+优先推荐通过构建环境变量注入（更适合阿里云 ESA PAGES 在线构建）：
+
+- `VITE_ICP_FILING_NUMBER=京ICP备12345678号-1`
+
+如果不想通过环境变量注入，也可以改源码常量（不推荐频繁改动）：
+
+- 默认前端：[constants.ts](./web/default/src/lib/constants.ts) 的 `DEFAULT_ICP_FILING_NUMBER`
+- 经典前端：[common.constant.js](./web/classic/src/constants/common.constant.js) 的 `DEFAULT_ICP_FILING_NUMBER`
 
 ## 7. Docker 快速启动（可选）
 
