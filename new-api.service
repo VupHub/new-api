@@ -1,0 +1,22 @@
+[Unit]
+Description=new-api backend service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=new-api
+Group=new-api
+WorkingDirectory=/opt/new-api
+EnvironmentFile=/opt/new-api/.env
+# If you build locally and do not have run-ubuntu.sh, replace this with the real binary path.
+ExecStart=/opt/new-api/run-ubuntu.sh
+Restart=always
+RestartSec=5
+TimeoutStartSec=60
+TimeoutStopSec=30
+KillMode=process
+LimitNOFILE=1048576
+
+[Install]
+WantedBy=multi-user.target
