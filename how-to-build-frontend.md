@@ -67,7 +67,7 @@ bun run build
 
 - `web/classic/dist/`
 
-## 可选：构建时指定后端地址（更适合 Pages）
+## 可选：构建时指定后端地址（更适合阿里云 ESA PAGES）
 
 `web/classic` 支持通过构建环境变量注入后端地址：
 
@@ -79,6 +79,36 @@ bun run build
 cd web/classic
 VITE_REACT_APP_SERVER_URL="https://api.example.com" bun run build
 ```
+
+## 阿里云 ESA PAGES 构建配置（根目录/输出目录/静态目录）
+
+如果你使用的是阿里云 ESA PAGES 在线构建模式，通常需要配置：
+
+- 根目录（Root Directory）
+- 依赖安装命令（Install Command）
+- 构建命令（Build Command）
+- 输出目录（Output Directory）
+- 静态文件目录（Static Directory）
+
+推荐使用 `web/classic` 作为 Pages 前端（支持独立后端域名）：
+
+| 配置项 | 值 |
+| --- | --- |
+| 根目录 | `web/classic` |
+| 依赖安装命令 | `bun install` |
+| 构建命令 | `VITE_REACT_APP_SERVER_URL=https://api.example.com bun run build` |
+| 输出目录 | `dist` |
+| 静态文件目录 | `dist` |
+
+如果你选择 `web/default`：
+
+| 配置项 | 值 |
+| --- | --- |
+| 根目录 | `web/default` |
+| 依赖安装命令 | `bun install` |
+| 构建命令 | `bun run build` |
+| 输出目录 | `dist` |
+| 静态文件目录 | `dist` |
 
 ## 备案号配置
 
