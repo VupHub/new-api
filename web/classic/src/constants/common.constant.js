@@ -23,7 +23,8 @@ export const DEFAULT_ENDPOINT = '/api/pricing';
 
 export const TABLE_COMPACT_MODES_KEY = 'table_compact_modes';
 
-export const DEFAULT_ICP_FILING_NUMBER = '';
+export const DEFAULT_ICP_FILING_NUMBER =
+  (import.meta.env.VITE_ICP_FILING_NUMBER || '').trim();
 export const ICP_FILING_QUERY_URL = 'https://beian.miit.gov.cn/';
 export const PROJECT_REPO_URL = 'https://github.com/VupHub/new-api';
 

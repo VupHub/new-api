@@ -96,7 +96,7 @@ VITE_REACT_APP_SERVER_URL="https://api.example.com" bun run build
 | --- | --- |
 | 根目录 | `web/classic` |
 | 依赖安装命令 | `bun install` |
-| 构建命令 | `VITE_REACT_APP_SERVER_URL=https://api.example.com bun run build` |
+| 构建命令 | `VITE_REACT_APP_SERVER_URL=https://api.example.com VITE_ICP_FILING_NUMBER=京ICP备12345678号-1 bun run build` |
 | 输出目录 | `dist` |
 | 静态文件目录 | `dist` |
 
@@ -106,7 +106,7 @@ VITE_REACT_APP_SERVER_URL="https://api.example.com" bun run build
 | --- | --- |
 | 根目录 | `web/default` |
 | 依赖安装命令 | `bun install` |
-| 构建命令 | `bun run build` |
+| 构建命令 | `VITE_ICP_FILING_NUMBER=京ICP备12345678号-1 bun run build` |
 | 输出目录 | `dist` |
 | 静态文件目录 | `dist` |
 
@@ -120,3 +120,5 @@ VITE_REACT_APP_SERVER_URL="https://api.example.com" bun run build
   - `DEFAULT_ICP_FILING_NUMBER`
 
 备案号将展示在页脚的 `© {year} {SystemName}. 版权所有` 右侧，并链接到工信部备案查询页面 `https://beian.miit.gov.cn/`。
+
+说明：`DEFAULT_ICP_FILING_NUMBER` 现在优先从构建环境变量 `VITE_ICP_FILING_NUMBER` 读取；未设置时回退为空字符串（不展示）。

@@ -176,7 +176,7 @@ Recommended settings for classic:
 | --- | --- |
 | Root Directory | `web/classic` |
 | Install Command | `bun install` |
-| Build Command | `VITE_REACT_APP_SERVER_URL=https://api.example.com bun run build` |
+| Build Command | `VITE_REACT_APP_SERVER_URL=https://api.example.com VITE_ICP_FILING_NUMBER=ICP12345678 bun run build` |
 | Output Directory | `dist` |
 | Static Directory | `dist` |
 

@@ -5,6 +5,7 @@ param(
     [string]$BackendTargetArch = "amd64",
     [string]$GoProxy,
     [string]$FrontendServerUrl,
+    [string]$IcpFilingNumber,
     [switch]$Clean,
     [switch]$SkipInstall,
     [switch]$SkipDefaultFrontend,
@@ -210,6 +211,7 @@ Write-Host ("Backend target OS: {0}" -f $resolvedBackendTargetOS)
 Write-Host ("Backend target arch: {0}" -f $BackendTargetArch)
 Write-Host ("Go proxy override: {0}" -f $(if ($backendGoProxy) { $backendGoProxy } else { "<not set>" }))
 Write-Host ("Frontend server URL: {0}" -f $(if ($FrontendServerUrl) { $FrontendServerUrl } else { "<not set>" }))
+Write-Host ("ICP filing number: {0}" -f $(if ($IcpFilingNumber) { $IcpFilingNumber } else { "<not set>" }))
 Write-Host ("Skip install: {0}" -f $SkipInstall.IsPresent)
 Write-Host ("Build default frontend: {0}" -f $buildDefaultFrontend)
 Write-Host ("Build classic frontend: {0}" -f $buildClassicFrontend)
@@ -238,6 +240,7 @@ if ($buildDefaultFrontend) {
             DISABLE_ESLINT_PLUGIN = "true"
             VITE_REACT_APP_VERSION = $buildVersion
             VITE_REACT_APP_SERVER_URL = $FrontendServerUrl
+            VITE_ICP_FILING_NUMBER = $IcpFilingNumber
         }
 
     if ($exportPages) {
@@ -260,6 +263,7 @@ if ($buildClassicFrontend) {
         -EnvironmentOverrides @{
             VITE_REACT_APP_VERSION = $buildVersion
             VITE_REACT_APP_SERVER_URL = $FrontendServerUrl
+            VITE_ICP_FILING_NUMBER = $IcpFilingNumber
         }
 
     if ($exportPages) {

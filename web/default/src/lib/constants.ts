@@ -23,7 +23,9 @@ For commercial licensing, please contact support@quantumnous.com
 // System Configuration Defaults
 export const DEFAULT_SYSTEM_NAME = 'New API'
 export const DEFAULT_LOGO = '/logo.png'
-export const DEFAULT_ICP_FILING_NUMBER = ''
+export const DEFAULT_ICP_FILING_NUMBER =
+  (import.meta as unknown as { env?: Record<string, string | undefined> }).env
+    ?.VITE_ICP_FILING_NUMBER?.trim() ?? ''
 export const ICP_FILING_QUERY_URL = 'https://beian.miit.gov.cn/'
 export const PROJECT_REPO_URL = 'https://github.com/VupHub/new-api'
 
